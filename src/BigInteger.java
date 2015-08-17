@@ -9,9 +9,21 @@ import java.util.ArrayList;
  */
 public class BigInteger {
 
-    ArrayList<Integer> values;
+    private ArrayList<Integer> values;
+    boolean isNegative;
 
     public BigInteger() {
-        values.add(0);
+        this(0);
+    }
+
+    public BigInteger(int i) {
+        values = new ArrayList<Integer>();
+        if(i < 0) {
+            isNegative = true;
+            values.add(-i);
+        } else {
+            isNegative = false;
+            values.add(i);
+        }
     }
 }
