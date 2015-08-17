@@ -24,7 +24,14 @@ public class BigInteger {
 
     public BigInteger(String input) {
         values = new ArrayList<Integer>();
-        for(int i = input.length(); i >= 0; i -= 5) {
+
+        isNegative = false;
+        if(input.charAt(0) == '-') {
+            isNegative = true;
+            input = input.substring(1);
+        }
+
+        for(int i = input.length(); i > 0; i -= 5) {
             int to = i - 5;
             if(to < 0) {
                 to = 0;
