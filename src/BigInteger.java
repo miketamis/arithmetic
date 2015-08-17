@@ -1,12 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: mtamis
- * Date: 8/17/15
- * Time: 8:24 PM
- * To change this template use File | Settings | File Templates.
- */
 public class BigInteger {
 
     private ArrayList<Integer> values;
@@ -25,5 +18,47 @@ public class BigInteger {
             isNegative = false;
             values.add(i);
         }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if(isNegative) {
+            sb.append('-');
+        }
+
+        for(int value : values) {
+            sb.append(value);
+        }
+
+        return sb.toString();
+    }
+
+    public BigInteger plus(BigInteger other) {
+        return null;
+    }
+
+    public BigInteger minus(BigInteger other) {
+        return null;
+    }
+
+    public BigInteger divideBy(BigInteger other) {
+        return null;
+    }
+
+    public BigInteger multiplyBy(BigInteger other) {
+        return null;
+    }
+
+    public boolean greaterThan(BigInteger other) {
+        return false;
+    }
+
+    public boolean lessThan(BigInteger other) {
+        return other.greaterThan(this);
+    }
+
+    /* Greatest Common Divisor */
+    public BigInteger gcd(BigInteger other) {
+        return null;
     }
 }
