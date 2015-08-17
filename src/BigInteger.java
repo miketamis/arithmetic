@@ -4,6 +4,8 @@ public class BigInteger {
 
     private ArrayList<Integer> values;
     boolean isNegative;
+    public static final int NUMBER_CHAR = 5;
+    public static final int MAX = 10 ^ NUMBER_CHAR - 1;
 
     public BigInteger() {
         this(0);
@@ -20,14 +22,26 @@ public class BigInteger {
         }
     }
 
+    public BigInteger(String input) {
+        values = new ArrayList<Integer>();
+        for(int i = input.length(); i >= 0; i -= 5) {
+            int to = i - 5;
+            if(to < 0) {
+                to = 0;
+            }
+            int toAdd = Integer.parseInt(input.substring(to, i));
+            values.add(toAdd);
+        }
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if(isNegative) {
             sb.append('-');
         }
 
-        for(int value : values) {
-            sb.append(value);
+        for(int i = values.size() - 1; i >= 0; i--) {
+            sb.append(values.get(i));
         }
 
         return sb.toString();
