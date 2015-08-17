@@ -5,7 +5,7 @@ public class BigInteger {
     private ArrayList<Integer> values;
     boolean isNegative;
     public static final int NUMBER_CHAR = 5;
-    public static final int MAX = 10 ^ NUMBER_CHAR - 1;
+    public static final int MAX = 99999;//(10 ^ NUMBER_CHAR) - 1;
 
     public BigInteger() {
         this(0);
@@ -48,7 +48,20 @@ public class BigInteger {
     }
 
     public BigInteger plus(BigInteger other) {
-        return null;
+        int smallest = values.size();
+        if(smallest > other.values.size()) {
+            smallest = other.values.size();
+        }
+
+        for(int i = 0; i < smallest; i++) {
+            int newValue = values.get(i) + other.values.get(i);
+            if(newValue > MAX) {
+                newValue -= MAX;
+                values.set(i + 1, values.get(i + 1));
+            }
+            values.set(i, newValue);
+        }
+        return this;
     }
 
     public BigInteger minus(BigInteger other) {
